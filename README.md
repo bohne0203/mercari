@@ -22,3 +22,118 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+## usersテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## users_detailテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## itemsテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+
+## blandsテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+
+## large_caregoriesテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+
+## medium_categoriesテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+
+## small_categoriesテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## likesテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## conditionsテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## evaluationsテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## commentsテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+
+## sizesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+## テーブル
+|column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string|------|
+|group_id|integer|null: false|
+|user_id|integer|null: false|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+## groupsテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index,unique: true|
+
+### Association
+- has_many :messages
+- has_many :users, through: :members
+- has_many :members
+
+
