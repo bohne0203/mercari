@@ -22,56 +22,82 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
 ## usersテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|name|string|null: false,unique: true|
+|image|string|null: true|
 
 ### Association
+-has_one :users_details
+-has_many :items
+-has_many :comments
+-has_many :likes
 
-## users_detailテーブル
+## users_detailsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|user_id|integer|null: false,unique: true|
+|first_name|string|null: false,|
+|family_name|string|null: false,|
+|kana_first|string|null: false,|
+|kana_family|string|null: false,|
+|postal_code|INTEGER(7)|null: false,|
+|preficture|string|null: false,|
+|city|string|null: false,|
+|addless|string|null: false,|
+|building_name|string|
+|phone_num|INTEGER|null: false,|
+|profile|text|
 
 ### Association
+belongs_to :user, optional: true, dependent: :destroy, foreign_key: "user_id"
+
 
 ## itemsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|name|string|null: false,add_index|
+|price|integer|null: false|
+|detail|text|null: false|
+|condition|string|null: false|<!-- もしかしたらテーブル作る ？？-->
 
 ### Association
+belongs_to user,
+-has_many :brands
+-has_many :large_caregories
+-has_many :medium_categories
+-has_many :small_categories
 
-
-## blandsテーブル
+## brandsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|name|string|
 
 ### Association
-
+-belongs_to :item
 
 ## large_caregoriesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|name|string|null: false,add_index
 
 ### Association
-
+-belongs_to :item
 
 ## medium_categoriesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|name|string|null: false,,add_index
 
 ### Association
-
+-belongs_to :item
 
 ## small_categoriesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|name|string|null: false,add_index
 
 ### Association
 
@@ -81,27 +107,38 @@ Things you may want to cover:
 |name|string|null: false,add_index,unique: true|
 
 ### Association
+-belongs_to :user
+-belongs_to :item
 
-## conditionsテーブル
+<!-- ## conditionsテーブル
 |column|Type|Options|
 |------|----|-------|
 |name|string|null: false,add_index,unique: true|
 
 ### Association
+ -->
 
 ## evaluationsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|evaluation|string|null: false|
+|comment|textt|
+
 
 ### Association
+<!-- 後回し -->
+
 
 ## commentsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|comment|text|null: false|
+|user_id|intenger|null: false,foreign_key: true|
+|itenm_id|intenger|null: false,foreign_key: true|
 
 ### Association
+-belong_to :user
+-belong_to :item
 
 ## sizesテーブル
 
@@ -114,26 +151,17 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
-## テーブル
+## Shipping_methodsテーブル
 |column|Type|Options|
 |------|----|-------|
+|Burden_fee|integer|null: false|
+|Shipping_methods|string|null: false|
+|days_to_arrival|string|null: false|
+
+
 |body|text|null: false|
-|image|string|------|
+|im|string|------|
 |group_id|integer|null: false|
 |user_id|integer|null: false|
-
-### Association
-- belongs_to :group
-- belongs_to :user
-
-## groupsテーブル
-|column|Type|Options|
-|------|----|-------|
-|name|string|null: false,add_index,unique: true|
-
-### Association
-- has_many :messages
-- has_many :users, through: :members
-- has_many :members
-
+|preficture|string|null: false|
 
