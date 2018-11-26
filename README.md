@@ -1,28 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 ## usersテーブル
 |column|Type|Options|
 |------|----|-------|
@@ -82,10 +57,13 @@ Things you may want to cover:
 ## brandsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|--------|
+|name|string|-------|
 
 ### Association
 - belongs_to :item
+- has_many :large_caregories, through: :brands_categories
+- has_many :medium_caregories, through: :brands_categories
+- has_many :small_caregories, through: :brands_categories
 
 ## large_caregoriesテーブル
 |column|Type|Options|
@@ -94,6 +72,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+- has_many :brands, through: :brands_categories
 
 ## medium_categoriesテーブル
 |column|Type|Options|
@@ -102,6 +81,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+- has_many :brands, through: :brands_categories
 
 ## small_categoriesテーブル
 |column|Type|Options|
@@ -110,6 +90,22 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+- has_many :brands, through: :brands_categories
+
+## brands_categoriesテーブル
+|column|Type|Options|
+|------|----|-------|
+|brand_id|integer|null: false, foreign_key: true|
+|large_category_id|integer|null: false, foreign_key: true|
+|medium_category_id|integer|null: false, foreign_key: true|
+|small_category_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :brand
+- belongs_to :large_category
+- belongs_to :medium_category
+- belongs_to :small_category
+
 
 ## likesテーブル
 |column|Type|Options|
