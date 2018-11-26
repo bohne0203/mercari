@@ -157,8 +157,6 @@ belongs_to user,
 |Burden_fee|integer|null: false|
 |Shipping_methods|string|null: false|
 |days_to_arrival|string|null: false|
-
-
 |body|text|null: false|
 |im|string|------|
 |group_id|integer|null: false|
