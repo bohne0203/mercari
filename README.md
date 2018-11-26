@@ -82,7 +82,7 @@ Things you may want to cover:
 ## brandsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|-------|
+|name|string|--------|
 
 ### Association
 - belongs_to :item
