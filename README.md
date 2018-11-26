@@ -163,3 +163,4 @@ belongs_to user,
 |user_id|integer|null: false|
 |preficture|string|null: false|
 
+test
