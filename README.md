@@ -30,11 +30,12 @@ Things you may want to cover:
 |image|string|null: true|
 
 ### Association
-- has_one :users_details, dependent::destroy
-- has_many :items, dependent::destroy
-- has_many :comments, dependent::destroy
-- has_many :likes, dependent::destroy
-- has_many :credit_card, dependent::destroy
+- has_one :users_details, dependent: :destroy
+- has_many :items, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :credit_card, dependent: :destroy
+- has_many :evaluations dependent: :destroy
 
 ## users_detailsテーブル
 |column|Type|Options|
@@ -66,16 +67,17 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- belongs_to :large_caregory
+- belongs_to :medium_category
+- belongs_to :small_category
 - has_many :brands
-- has_many :large_caregories
-- has_many :medium_categories
-- has_many :small_categories
 - has_one :shipping_method
 - has_many :clothes_sizes
 - has_many :shoes_sizes
 - has_many :tv_sizes
 - has_many :tire_sizes
 - has_many :bike_sizes
+- has_many :likes
 
 ## brandsテーブル
 |column|Type|Options|
@@ -91,7 +93,7 @@ Things you may want to cover:
 |name|string|null: false, add_index|
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 ## medium_categoriesテーブル
 |column|Type|Options|
@@ -99,7 +101,7 @@ Things you may want to cover:
 |name|string|null: false, add_index|
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 ## small_categoriesテーブル
 |column|Type|Options|
@@ -107,7 +109,7 @@ Things you may want to cover:
 |name|string|null: false,add_index|
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 ## likesテーブル
 |column|Type|Options|
