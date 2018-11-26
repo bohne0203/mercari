@@ -30,10 +30,11 @@ Things you may want to cover:
 |image|string|null: true|
 
 ### Association
--has_one :users_details
--has_many :items
--has_many :comments
--has_many :likes
+- has_one :users_details, dependent::destroy
+- has_many :items, dependent::destroy
+- has_many :comments, dependent::destroy
+- has_many :likes, dependent::destroy
+- has_many :credit_card, dependent::destroy
 
 ## users_detailsテーブル
 |column|Type|Options|
@@ -44,7 +45,7 @@ Things you may want to cover:
 |kana_first|string|null: false,|
 |kana_family|string|null: false,|
 |postal_code|INTEGER(7)|null: false,|
-|preficture|string|null: false,|
+|prefecture|string|null: false,|
 |city|string|null: false,|
 |addless|string|null: false,|
 |building_name|string|
@@ -52,7 +53,7 @@ Things you may want to cover:
 |profile|text|
 
 ### Association
-belongs_to :user, optional: true, dependent: :destroy, foreign_key: "user_id"
+- belongs_to :user, optional: true, dependent: :destroy, foreign_key: "user_id"
 
 
 ## itemsテーブル
@@ -61,107 +62,143 @@ belongs_to :user, optional: true, dependent: :destroy, foreign_key: "user_id"
 |name|string|null: false,add_index|
 |price|integer|null: false|
 |detail|text|null: false|
-|condition|string|null: false|<!-- もしかしたらテーブル作る ？？-->
+|condition|string|null: false|
 
 ### Association
-belongs_to user,
--has_many :brands
--has_many :large_caregories
--has_many :medium_categories
--has_many :small_categories
+- belongs_to :user
+- has_many :brands
+- has_many :large_caregories
+- has_many :medium_categories
+- has_many :small_categories
+- has_one :shipping_method
+- has_many :clothes_sizes
+- has_many :shoes_sizes
+- has_many :tv_sizes
+- has_many :tire_sizes
+- has_many :bike_sizes
 
 ## brandsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|
+|name|string|-------|
 
 ### Association
--belongs_to :item
+- belongs_to :item
 
 ## large_caregoriesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index
+|name|string|null: false, add_index|
 
 ### Association
--belongs_to :item
+- belongs_to :item
 
 ## medium_categoriesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,,add_index
+|name|string|null: false, add_index|
 
 ### Association
--belongs_to :item
+- belongs_to :item
 
 ## small_categoriesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index
+|name|string|null: false,add_index|
 
 ### Association
+- belongs_to :item
 
 ## likesテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false,add_index,unique: true|
+|user_id|integer|null: false|
+|item_id|integer|null: false|
 
 ### Association
--belongs_to :user
--belongs_to :item
-
-<!-- ## conditionsテーブル
-|column|Type|Options|
-|------|----|-------|
-|name|string|null: false,add_index,unique: true|
-
-### Association
- -->
+- belongs_to :user
+- belongs_to :item
 
 ## evaluationsテーブル
 |column|Type|Options|
 |------|----|-------|
 |evaluation|string|null: false|
-|comment|textt|
-
+|comment|text|null: false|
 
 ### Association
-<!-- 後回し -->
-
+- belongs_to user
 
 ## commentsテーブル
 |column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
 |user_id|intenger|null: false,foreign_key: true|
-|itenm_id|intenger|null: false,foreign_key: true|
+|item_id|intenger|null: false,foreign_key: true|
 
 ### Association
--belong_to :user
--belong_to :item
-
-## sizesテーブル
-
-|column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
 - belongs_to :user
+- belongs_to :item
 
-## Shipping_methodsテーブル
+## clothes_sizesテーブル
 |column|Type|Options|
 |------|----|-------|
-|Burden_fee|integer|null: false|
-|Shipping_methods|string|null: false|
+|size|string|null: false|
+
+### Association
+- belongs_to :item
+
+## shoes_sizesテーブル
+|column|Type|Options|
+|------|----|-------|
+|size|string|null: false|
+
+### Association
+- belongs_to :item
+
+## tv_sizesテーブル
+|column|Type|Options|
+|------|----|-------|
+|size|string|null: false|
+
+### Association
+- belongs_to :item
+
+## tire_sizesテーブル
+|column|Type|Options|
+|------|----|-------|
+|size|string|null: false|
+
+### Association
+- belongs_to :item
+
+## bike_sizesテーブル
+|column|Type|Options|
+|------|----|-------|
+|size|string|null: false|
+
+### Association
+- belongs_to :item
+
+## shipping_methodsテーブル
+|column|Type|Options|
+|------|----|-------|
+|burden_fee|integer|null: false|
+|shipping_methods|string|null: false|
 |days_to_arrival|string|null: false|
+|item_id|integer|null: false,foreign_key: true|
+|prefecture|string|null: false|
 
+### Association
+- belongs_to :item
 
-|body|text|null: false|
-|im|string|------|
-|group_id|integer|null: false|
-|user_id|integer|null: false|
-|preficture|string|null: false|
+## credit_cardテーブル
+|column|Type|Options|
+|------|----|-------|
+|credit_number|integer|null: false|
+|security_cord|integer|null: false|
+|year|integer|null: false|
+|month|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
+### Association
+- belongs_to :user
