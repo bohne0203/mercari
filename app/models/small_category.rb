@@ -1,2 +1,0 @@
-class SmallCategory < ApplicationRecord
-end
