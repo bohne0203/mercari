@@ -13,9 +13,7 @@ class CreateUsersDetails < ActiveRecord::Migration[5.2]
       t.string      :building_name
       t.integer     :phone_num
       t.text        :profile
-
       t.timestamps
-
     end
   end
 end
