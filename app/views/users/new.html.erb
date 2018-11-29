@@ -1,0 +1,43 @@
+<div class="aaa">
+  <div class="logo333">
+    <%= image_tag("logo.svg", class: "logo333__item") %>
+  </div>
+  <div class="box4444">
+    <div class="box4444__top">
+      <p class="box4444__sas">アカウントをお持ちでない方はこちら</p>
+      <p class="box4444__signup">新規会員登録</p>
+    </div>
+    <div class="box4444__bottom">
+      <div class="box4444__er">
+        <div class="box4444__item">
+          <i class="fab fa-facebook box4444__awe"></i>
+          Facebookで登録
+        </div>
+      </div>
+      <div class="box4444__wr">
+        <div class="box4444__item">
+          <i class="fab fa-google-plus-g box4444__awe"></i>
+          Googoleで登録
+        </div>
+      </div>
+      <div class="form-yes">
+        <%= form_for root_path, html: {class: "form-yes__f"} do |f| %>
+          <%= f.text_field :name, placeholder: "メールアドレス", class: "form-yes__n" %>
+          <%= f.text_field :password, placeholder: "パスワード",class: "form-yes__n"%>
+          <div class="robot">私はロボットではありません</div>
+          <%= f.submit class: "form-yes__b", value: "ログイン" %>
+        <% end %>
+      </div>
+      <p class="blue1">パスワードをお忘れの方</p>
+    </div>
+  </div>
+  <div class="bottom-list7">
+    <ul class="bottom-list7__ul">
+      <li class="bottom-list7__item">プライバシーポリシー</li>
+      <li class="bottom-list7__item">メルカリ利用規約</li>
+      <li class="bottom-list7__item">特定商取引に関する表記</li>
+    </ul>
+    <%= image_tag("logo-gray", class: "bottom-list7__image clearfix")%>
+    <p class="bottom-list7__footer">© 2018 Mercari</p>
+  </div>
+</div>
