@@ -1,0 +1,67 @@
+<div class="aaa">
+  <div class="header2">
+    <div class="logo333-left">
+      <%= image_tag("logo.svg", class: "logo333-left__item") %>
+    </div>
+    <ul class="header2__ul">
+        <li class="header2__item">
+          完了
+          <div class="header2__maru"></div>
+        </li>
+        <li class="header2__item">
+          支払い情報
+          <div class="header2__maru"></div>
+        </li>
+          <li class="header2__item">
+            住所入力
+            <div class="header2__maru"></div>
+          </li>
+        <li class="header2__item">
+          電話番号認証
+        <div class="header2__maru"></div>
+        </li>
+        <li class="header2__item">
+          会員情報
+          <div class="header2__maru"></div>
+        </li>
+    </ul>
+  </div>
+  <div class="box44444 clearfix">
+    <div class="box44444__top">
+      <p class="box44444__text">会員情報入力</p>
+    </div>
+    <div class="box44444__bottom">
+      <div class="form-yes">
+        <%= form_for root_path, html: {class: "form-yes__f"} do |f| %>
+          <div class="form-yes__width">
+            <p class="form-yes__label">ニックネーム</p>
+            <%= f.text_field :name, placeholder: "メールアドレス", class: "form-yes__n" %>
+          </div>
+          <div class="form-yes__width">
+            <p class="form-yes__label">ニックネーム</p>
+            <%= f.text_field :name, placeholder: "メールアドレス", class: "form-yes__n" %>
+          </div>
+          <div class="form-yes__width">
+            <p class="form-yes__label">ニックネーム</p>
+            <%= f.text_field :name, placeholder: "メールアドレス", class: "form-yes__n" %>
+          </div>
+          <div class="form-yes__width">
+            <p class="form-yes__label">ニックネーム</p>
+            <%= f.text_field :name, placeholder: "メールアドレス", class: "form-yes__n" %>
+          </div>
+          <div class="robot">私はロボットではありません</div>
+          <%= f.submit class: "form-yes__b", value: "次へ進む" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-list7">
+    <ul class="bottom-list7__ul">
+      <li class="bottom-list7__item">プライバシーポリシー</li>
+      <li class="bottom-list7__item">メルカリ利用規約</li>
+      <li class="bottom-list7__item">特定商取引に関する表記</li>
+    </ul>
+    <%= image_tag("logo-gray", class: "bottom-list7__image clearfix")%>
+    <p class="bottom-list7__footer">© 2018 Mercari</p>
+  </div>
+</div>
