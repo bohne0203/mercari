@@ -1,6 +1,8 @@
+a{
+  color:#333;
+}
+
 .header{
-  border-bottom: 1px solid #e6e6e6;
-  padding-bottom: 10px;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 
   .header-inner{
@@ -8,53 +10,132 @@
       margin : 0 auto;
       padding: 8px 0 0;
 
-    .logo-bar{
 
+    .logo-bar{
+      position: relative;
       .logo{
         display: inline-block;
       }
       .header-form{
-        float:right;
-        width: 870px;
+        position: absolute;
+        top: 0;
+        left: 15%;
+        width: calc(100% - (134px + 16px));
+        display: inline-block;
+        height: 36px;
 
-        .input-default{
+        .form__input{
+          display: inline-block;
+          line-height: 1.5;
+          font-size: 16px;
           width:100%;
-          font-size: 12px;
+          height: 36px;
+          box-sizing:border-box;
+          border:1px solid #ccc;;
+          border-radius: 4px;
           padding: 9px 32px 9px 8px;
+          font-family: inherit;
+        }
+
+        .fa.fa-search{
+          position:absolute;
+          top:0;
+          right:0;
+          width: 36px;
+          line-height: 36px;
+          cursor: pointer;
+          text-align: center;
+          display: inline-block;
         }
       }
 
     }
     .header-nav__box{
       margin: 6px 0 0;
+      z-index:100;
 
       .left__list{
         display: inline-block;
         font-size: 14px;
+        position: relative;
 
           &__category{
-            display: inline;
+            width:126px;
             height: 38px;
             line-height: 32px;
+            display: inline-block;
 
-            >a{
-              text-decoration: none;
-            }
-            >a:visited{
-              color:#333;
-            }
-            >a:hover{
-              color:#0099e8;
+
+            >h2{
+              >a{
+                display: block;
+                text-decoration: none;
+                &:hover{
+                  color:#0099e8;
+                }
               }
+            }
+            &__pulldown{
+                display: inline-block;
+                width:220px;
+                float: left;
+
+              &__name{
+                position: relative;
+                display: none;
+                z-index:100;
+                background-color: white;
+
+                >h3{
+
+                  >a{
+                    display: block;
+                    text-decoration: none;
+                    padding: 0 16px;
+                    line-height: 44px;
+                    overflow: hidden;
+
+                    &:hover{
+                      background: #ea352d;
+                      color:#FFFFFF;
+                    }
+                  }
+                }
+                &__child{
+                  display:none;
+                  position: absolute;
+                  top: 0;
+                  left: 220px;
+                  width: 220px;
+                  background: white;
+
+                  &--li{
+                    >a{
+                      box-sizing:border-box;
+                      display: block;
+                      text-decoration: none;
+                      font-size: 14px;
+                      padding-left: 12px;
+
+                      &:hover{
+                        background-color:#e6e6e6;
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
 
           &__brand{
-            display: inline;
             height: 38px;
             line-height: 32px;
             margin-left: 12px;
+            display: inline-block;
+
 
             >a{
+              display: block;
               text-decoration: none;
               }
             >a:visited{
@@ -62,7 +143,36 @@
             }
             >a:hover{
               color:#0099e8;
+            }
+
+            &__pulldown{
+                display: inline-block;
+                width:220px;
+                float: left;
+
+              &__name{
+                position: relative;
+                z-index:100;
+                display: none;
+                background-color: white;
+
+                >h3{
+
+                  >a{
+                    display: block;
+                    text-decoration: none;
+                    padding: 0 16px;
+                    line-height: 44px;
+                    overflow: hidden;
+                  }
+
+                  >a:hover{
+                    background: #ea352d;
+                    color:#FFFFFF;
+                  }
+                }
               }
+            }
           }
       }
 
@@ -100,5 +210,4 @@
       }
     }
   }
-
 }
