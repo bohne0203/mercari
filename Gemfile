@@ -80,3 +80,6 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'ransack'
+gem "font-awesome-rails"
+gem 'font-awesome-sass'
+
