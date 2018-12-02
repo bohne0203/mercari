@@ -37,19 +37,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_073255) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-
-  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "credit_number", null: false
-    t.integer "security_cord", null: false
-    t.integer "year", null: false
-    t.integer "month", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_credit_cards_on_user_id"
-  end
-
-
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "credit_number", null: false
     t.integer "security_cord", null: false
@@ -107,12 +94,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_073255) do
   end
 
   create_table "shipping_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-<<<<<<< HEAD
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-=======
     t.integer "burden_fee", null: false
     t.string "shipping_methods", null: false
     t.string "days_to_arrival", null: false
@@ -123,8 +104,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_073255) do
     t.index ["item_id"], name: "index_shipping_methods_on_item_id"
   end
 
-
->>>>>>> yuuki999/master
   create_table "small_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
